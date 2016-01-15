@@ -1,1 +1,1 @@
-// Write your package code here!
+loremIpsum = Npm.require('lorem-ipsum');

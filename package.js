@@ -10,15 +10,21 @@ Package.describe({
   documentation: 'README.md'
 });
 
+Npm.depends({
+  'lorem-ipsum': '1.0.3'
+});
+
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('ecmascript');
-  api.addFiles('lorem-ipsum.js');
+  api.addFiles('lorem-ipsum.js', 'server');
+
+  api.export('loremIpsum', 'server')
 });
 
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('marvin:lorem-ipsum');
-  api.addFiles('lorem-ipsum-tests.js');
+  api.use('marvin:lorem-ipsum', 'server');
+  api.addFiles('lorem-ipsum-tests.js', 'server');
 });
